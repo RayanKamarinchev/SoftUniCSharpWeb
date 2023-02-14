@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI_01</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI_01.Controllers.ProductController.GetAll">
+            <summary>
+            Get All Products
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
