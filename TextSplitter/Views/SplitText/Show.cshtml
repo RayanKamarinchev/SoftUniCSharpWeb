@@ -1,0 +1,16 @@
+﻿@model TextViewModel
+<p></p>
+<form asp-controller="SplitText" asp-action="Split" method="post">
+    <div class="col-12">
+        <input asp-for = "@Model.Text" class="mt-2"/>
+        <button type="submit" class=" btn btn-primary">Split Text</button>
+    </div>
+    <span asp-validation-for="Text" class="small text-danger col-2"></span>
+    <div class="col-2 mt-3">
+        <textarea rows="10">@Model.SplitText</textarea>
+    </div>
+</form>
+
+@section Scripts{
+        <partial name="_ValidationScriptsPartial"/>
+}
