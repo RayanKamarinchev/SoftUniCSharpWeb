@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApp", "ChatApp\ChatApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextSplitter", "TextSplitter\TextSplitter.csproj", "{80BF7749-917F-474C-890F-04451C7C0798}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EfCore Exercise", "EfCore Exercise", "{AB47149F-B93C-42F4-B848-43EB6DDEAB7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumApp", "ForumApp\ForumApp.csproj", "{C0E7334F-D960-473F-95FD-9633C00A0289}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,10 @@ Global
 		{80BF7749-917F-474C-890F-04451C7C0798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80BF7749-917F-474C-890F-04451C7C0798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80BF7749-917F-474C-890F-04451C7C0798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E7334F-D960-473F-95FD-9633C00A0289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E7334F-D960-473F-95FD-9633C00A0289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E7334F-D960-473F-95FD-9633C00A0289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E7334F-D960-473F-95FD-9633C00A0289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +75,7 @@ Global
 		{46CB2A72-767C-41EF-BA21-38B58C1FE6B2} = {C6E522F3-6409-4219-9F77-5796C19BB046}
 		{B91BDBB6-213D-4D07-B959-03952A0C0332} = {C6E522F3-6409-4219-9F77-5796C19BB046}
 		{80BF7749-917F-474C-890F-04451C7C0798} = {C6E522F3-6409-4219-9F77-5796C19BB046}
+		{C0E7334F-D960-473F-95FD-9633C00A0289} = {AB47149F-B93C-42F4-B848-43EB6DDEAB7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F68F097-4B29-4F07-A7EC-4B292C4090A1}
