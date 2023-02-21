@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForumApp", "ForumApp\ForumA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity Exercise", "Identity Exercise", "{1134A7FF-4C2C-4894-8810-8BB7368CBD94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp01", "TaskBoardApp01\TaskBoardApp01.csproj", "{90BDF7DC-49FC-4A98-891C-E6EECF89C87C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskBoardApp01", "TaskBoardApp01\TaskBoardApp01.csproj", "{90BDF7DC-49FC-4A98-891C-E6EECF89C87C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExamPrep", "ExamPrep", "{1F81B438-CA2F-40FE-80F9-E3A35D923550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
