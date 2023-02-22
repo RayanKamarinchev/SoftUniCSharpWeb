@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TaskBoardApp01.Binders;
 using TaskBoardApp01.Data;
 using TaskBoardApp01.Data.Entities;
 
@@ -20,7 +21,13 @@ builder.Services.AddDefaultIdentity<User>(options =>
                options.Password.RequireLowercase = false;
            })
         .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+       .AddMvcOptions(options =>
+       {
+           options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+       });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
