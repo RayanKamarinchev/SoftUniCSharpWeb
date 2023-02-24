@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using static HouseRenting.Data.AdminConstants;
 
 namespace HouseRenting.Data
 {
@@ -97,10 +96,10 @@ namespace HouseRenting.Data
             this.AdminUser = new User()
             {
                 Id = "bcb4f072-ecca-43c9-ab26-c060c6f364e4",
-                Email = AdminEmail,
-                NormalizedEmail = AdminEmail,
-                UserName = AdminEmail,
-                NormalizedUserName = AdminEmail,
+                Email = "admin@mail.com",
+                NormalizedEmail = "admin@mail.com",
+                UserName = "admin@mail.com",
+                NormalizedUserName = "admin@mail.com",
                 FistName = "Great",
                 LastName = "Admin"
             };

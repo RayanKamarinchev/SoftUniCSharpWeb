@@ -35,5 +35,6 @@ namespace HouseRenting.Data.Entities
         [ForeignKey(nameof(AgentId))]
         public Agent Agent { get; set; }
         public string? RenterId { get; set; }
+        public User Renter { get; set; }
     }
 }

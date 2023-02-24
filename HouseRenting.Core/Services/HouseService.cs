@@ -96,7 +96,8 @@ namespace HouseRenting.Core.Services
                                        Id = h.Id,
                                        ImageUrl = h.ImageUrl,
                                        IsRented = h.RenterId != null,
-                                       PricePerMonth = h.PricePerMonth
+                                       PricePerMonth = h.PricePerMonth,
+                                       Title = h.Title
                                    });
             return new HouseQueryServiceModel()
             {

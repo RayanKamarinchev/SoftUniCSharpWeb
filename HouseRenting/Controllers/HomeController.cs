@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using HouseRenting.Core.Contracts;
 using HouseRenting.Core.Models.Houses;
+using static HouseRenting.Data.AdminConstants;
 
 namespace HouseRenting.Controllers
 {
@@ -16,6 +17,11 @@ namespace HouseRenting.Controllers
         }
         public IActionResult Index()
         {
+            if (User.IsInRole(AdminRoleName))
+            {
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            }
+
             var houses = houseService.GetLastThree();
             return View(houses);
         }

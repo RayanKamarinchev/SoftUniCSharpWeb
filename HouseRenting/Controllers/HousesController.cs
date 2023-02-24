@@ -1,8 +1,10 @@
 ﻿using HouseRenting.Core.Contracts;
 using HouseRenting.Core.Models.Houses;
+using HouseRenting.Data;
 using HouseRenting.Web.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace HouseRenting.Web.Controllers
 {
@@ -10,11 +12,13 @@ namespace HouseRenting.Web.Controllers
     {
         private readonly IAgentService agentService;
         private readonly IHouseService houseService;
+        private readonly IMemoryCache cache;
 
-        public HousesController(IAgentService _agentService, IHouseService _houseService)
+        public HousesController(IAgentService _agentService, IHouseService _houseService, IMemoryCache _cache)
         {
             agentService = _agentService;
             houseService = _houseService;
+            cache = _cache;
         }
         public IActionResult Index([FromQuery] AllHousesQueryModel query)
         {
@@ -99,6 +103,7 @@ namespace HouseRenting.Web.Controllers
             int agentId = agentService.GetAgentId(User.Id());
             var houseId = houseService.Create(model.Title, model.Address, model.Description, model.ImageUrl,
                                                  model.PricePerMonth, model.CategoryId, agentId);
+            TempData["message"] = "You have successfully added a house!";
             return RedirectToAction(nameof(Details), new { id = houseId, information = model.GetInformation() });
         }
 
@@ -127,6 +132,7 @@ namespace HouseRenting.Web.Controllers
                 CategoryId = houseCategoryId,
                 Categories = houseService.AllCategories()
             };
+            TempData["message"] = "You have successfully edited a house!";
             return View(houseModel);
         }
 
@@ -181,6 +187,7 @@ namespace HouseRenting.Web.Controllers
                 ImageUrl = house.ImageUrl,
                 Id = house.Id
             };
+            TempData["message"] = "You have successfully deleted a house!";
             return View(model);
         }
 
@@ -221,6 +228,8 @@ namespace HouseRenting.Web.Controllers
                 return BadRequest();
             }
             houseService.Rent(id, User.Id());
+            cache.Remove(AdminConstants.RentsCacheKey);
+            TempData["message"] = "You have successfully rented a house!";
             return RedirectToAction(nameof(Mine));
         }
 
@@ -238,6 +247,8 @@ namespace HouseRenting.Web.Controllers
                 return Unauthorized();
             }
             houseService.Leave(id);
+            cache.Remove(AdminConstants.RentsCacheKey);
+            TempData["message"] = "You have successfully left a house!";
             return RedirectToAction(nameof(Mine));
         }
     }

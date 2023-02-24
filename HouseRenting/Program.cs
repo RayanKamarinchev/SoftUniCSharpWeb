@@ -1,4 +1,5 @@
 using HouseRenting.Core.Contracts;
+using HouseRenting.Core.Rents;
 using HouseRenting.Core.Services;
 using HouseRenting.Data;
 using HouseRenting.Data.Entities;
@@ -45,6 +46,8 @@ builder.Services.AddTransient<IHouseService, HouseService>();
 builder.Services.AddTransient<IAgentService, AgentService>();
 builder.Services.AddTransient<IStatisticsService, StatisticsService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IRentService, RentService>();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -74,6 +77,10 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapControllerRoute(
+        name: "Areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
     endpoints.MapControllerRoute(
         name: "House Details",
         pattern: "{controller=Houses}/{action=Details}/{id}/{information}");

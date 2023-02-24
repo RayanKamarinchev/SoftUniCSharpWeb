@@ -48,6 +48,7 @@ namespace HouseRenting.Web.Controllers
             }
 
             agentService.Create(User.Id(), model.PhoneNumber);
+            TempData["message"] = "You have successfully became an agent";
             return RedirectToAction(nameof(HousesController.Index), "Houses");
         }
     }
